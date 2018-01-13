@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 // components
+import SetSprite from './components/set-sprite'
 import Grid from './components/grid'
 
 class App extends React.Component {
@@ -8,14 +9,34 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      cells: []
+      cells: [],
+      sprite: null
     }
 
     this.drawArray = this.drawArray.bind(this)
+    this.setSprite = this.setSprite.bind(this)
+    this.setX = this.setX.bind(this)
   }
 
   drawArray (rows) {
-    return Array(rows).fill(0)
+    return Array(rows).fill(null)
+  }
+
+  setSprite (el) {
+    const sprite = el.target.value
+
+    this.setState({
+      sprite
+    })
+  }
+
+  setX (el) {
+    const cells = this.state.cells
+
+    if (!cells[el.target.id]) {
+      cells[el.target.id] = this.state.sprite
+      this.setState({ cells })
+    }
   }
 
   componentDidMount () {
@@ -27,7 +48,15 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Grid cells={this.state.cells} />
+        <SetSprite
+          setSprite={this.setSprite}
+          sprite={this.state.sprite}
+        />
+        <Grid
+          cells={this.state.cells}
+          setX={this.setX}
+          sprite={this.state.sprite}
+        />
       </div>
     )
   }
