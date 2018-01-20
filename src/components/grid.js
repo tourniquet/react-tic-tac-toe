@@ -11,7 +11,7 @@ const Grid = props => (
         key={i}
         id={i}
         value={cell}
-        setX={props.setX}
+        setPlayer={props.setPlayer}
       />
     ))
     }

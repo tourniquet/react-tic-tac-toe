@@ -6,7 +6,7 @@ const Cell = props => (
   <div
     id={props.id}
     className='cell'
-    onClick={props.setX}
+    onClick={props.setPlayer}
   >
     {props.value}
   </div>

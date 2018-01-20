@@ -1,11 +1,12 @@
 .set-sprite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: red;
   border: 1px solid #000;
   height: 150px;
   width: 150px;
-  line-height: 150px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .hide-set-sprite {
