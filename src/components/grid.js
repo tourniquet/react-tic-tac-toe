@@ -1,21 +1,37 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 // components
 import Cell from './cell'
+
 // styles
 import '../styles/grid.scss'
 
-const Grid = props => (
-  <div className={props.sprite ? 'grid' : 'hide-grid'}>
-    { props.cells.map((cell, i) => (
-      <Cell
-        key={i}
-        id={i}
-        value={cell}
-        setPlayer={props.setPlayer}
-      />
-    ))
-    }
-  </div>
-)
+const mapStateToProps = state => {
+  return { cells: state.cells }
+}
 
-export default Grid
+const Grid = props => {
+  // const drawArray = () => {
+  //   return { type: 'DRAW_GRID' }
+  // }
+
+  // props.dispatch(drawArray())
+  // console.log(props)
+
+  return (
+    <div className={props.sprite ? 'grid' : 'hide-grid'}>
+      { props.cells.map((cell, i) => (
+        <Cell
+          key={i}
+          id={i}
+          value={cell}
+          setPlayer={props.setPlayer}
+        />
+      ))
+      }
+    </div>
+  )
+}
+
+export default connect(mapStateToProps)(Grid)
