@@ -12,13 +12,6 @@ const mapStateToProps = state => {
 }
 
 const Grid = props => {
-  // const drawArray = () => {
-  //   return { type: 'DRAW_GRID' }
-  // }
-
-  // props.dispatch(drawArray())
-  // console.log(props)
-
   return (
     <div className={props.sprite ? 'grid' : 'hide-grid'}>
       { props.cells.map((cell, i) => (

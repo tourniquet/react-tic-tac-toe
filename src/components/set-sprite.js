@@ -5,17 +5,13 @@ import { connect } from 'react-redux'
 import '../styles/set-sprite.scss'
 
 const mapStateToProps = state => {
-  return { sprite: state.sprite }
+  return { player: state.player }
 }
 
 const SetSprite = props => {
-  console.log(props)
-
   const setSprite = el => {
     const player = el.target.value
     const ai = player === '0' ? 'X' : '0'
-
-    console.log(props)
 
     return {
       type: 'SET_SPRITE',
@@ -25,7 +21,7 @@ const SetSprite = props => {
   }
 
   return (
-    <div className={props.sprite ? 'hide-set-sprite' : 'set-sprite'}>
+    <div className={props.player ? 'hide-set-player' : 'set-player'}>
       <input
         onClick={el => props.dispatch(setSprite(el))}
         type='button'

@@ -3,33 +3,12 @@ import { render } from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
+// reducer
+import reducer from './config/reducer'
+
 // components
 import SetSprite from './components/set-sprite'
 import Grid from './components/grid'
-
-const initialState = {
-  cells: [],
-  sprite: null,
-  ai: null,
-  player: 0
-}
-
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'DRAW_GRID':
-      return Object.assign({}, state, {
-        cells: Array(9).fill(null)
-      })
-    case 'SET_SPRITE':
-      return Object.assign({}, state, {
-        player: action.player,
-        ai: action.ai
-      })
-    case 'SET_PLAYER':
-    default:
-      return state
-  }
-}
 
 const store = createStore(
   reducer,
