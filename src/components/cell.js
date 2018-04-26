@@ -2,6 +2,9 @@ import React from 'react'
 // styles
 import '../styles/cell.scss'
 
+/**
+ * @param {object} props
+ */
 const Cell = props => {
   // change this function name
   const setPlayer = el => {

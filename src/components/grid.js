@@ -8,12 +8,15 @@ import Cell from './cell'
 import '../styles/grid.scss'
 
 const mapStateToProps = state => {
-  return { cells: state.cells }
+  return {
+    cells: state.cells,
+    player: state.player
+  }
 }
 
 const Grid = props => {
   return (
-    <div className={props.sprite ? 'grid' : 'hide-grid'}>
+    <div className={props.player ? 'grid' : 'hide-grid'}>
       { props.cells.map((cell, i) => (
         <Cell
           key={i}
@@ -21,8 +24,7 @@ const Grid = props => {
           value={cell}
           setPlayer={props.setPlayer}
         />
-      ))
-      }
+      ))}
     </div>
   )
 }
