@@ -20,6 +20,7 @@ const Cell = props => {
     const cells = props.cells
 
     let cell
+    /** return a number from 0 up to 8 */
     const randNum = () => { cell = Math.floor(Math.random() * 9) }
     randNum()
 
@@ -36,29 +37,29 @@ const Cell = props => {
 
   const checkMatch = () => {
     const cells = props.cells
-    const sprite = this.state.sprite
+    const player = props.player
 
     // check rows
-    if ((cells[0] === cells[1] && cells[1] === cells[2] && cells[0] === sprite) ||
-    (cells[3] === cells[4] && cells[4] === cells[5] && cells[3] === sprite) ||
-    (cells[6] === cells[7] && cells[7] === cells[8] && cells[6] === sprite)) {
+    if ((cells[0] === cells[1] && cells[1] === cells[2] && cells[0] === player) ||
+    (cells[3] === cells[4] && cells[4] === cells[5] && cells[3] === player) ||
+    (cells[6] === cells[7] && cells[7] === cells[8] && cells[6] === player)) {
       window.location.reload()
     }
 
     // check columns
-    if ((cells[0] === cells[3] && cells[3] === cells[6] && cells[0] === sprite) ||
-    (cells[1] === cells[4] && cells[4] === cells[7] && cells[1] === sprite) ||
-    (cells[2] === cells[5] && cells[5] === cells[8] && cells[2] === sprite)) {
+    if ((cells[0] === cells[3] && cells[3] === cells[6] && cells[0] === player) ||
+    (cells[1] === cells[4] && cells[4] === cells[7] && cells[1] === player) ||
+    (cells[2] === cells[5] && cells[5] === cells[8] && cells[2] === player)) {
       window.location.reload()
     }
 
     // check diagonals
-    if ((cells[0] === cells[4] && cells[4] === cells[8] && cells[0] === sprite) ||
-    (cells[2] === cells[4] && cells[4] === cells[6] && cells[2] === sprite)) {
+    if ((cells[0] === cells[4] && cells[4] === cells[8] && cells[0] === player) ||
+    (cells[2] === cells[4] && cells[4] === cells[6] && cells[2] === player)) {
       window.location.reload()
     }
 
-    if (this.player === 5) window.location.reload()
+    if (player === 5) window.location.reload()
   }
 
   /**
@@ -70,13 +71,10 @@ const Cell = props => {
     if (!cells[el.target.id]) {
       cells[el.target.id] = props.player
 
-      // checkMatch()
+      checkMatch()
       // if this.state.gameState == 5, finish the game
       // if player set up to four sprites, AI can set sprite
-      if (props.gameState <= 4) {
-        // console.log(props.gameState)
-        ai()
-      }
+      if (props.gameState <= 4) ai()
 
       return {
         type: 'DRAW_SPRITE',
