@@ -17,7 +17,7 @@ const mapStateToProps = state => {
 const SetSprite = props => {
   const chooseSprite = el => {
     const player = el.target.value
-    const ai = player === '0' ? 'X' : '0'
+    const ai = player === 'O' ? 'X' : 'O'
 
     return {
       type: 'SET_SPRITE',
@@ -36,7 +36,7 @@ const SetSprite = props => {
       <input
         onClick={el => props.dispatch(chooseSprite(el))}
         type='button'
-        value='0'
+        value='O'
       />
     </div>
   )

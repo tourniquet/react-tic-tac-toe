@@ -22,7 +22,6 @@ const Grid = props => {
           key={i}
           id={i}
           value={cell}
-          setPlayer={props.setPlayer}
         />
       ))}
     </div>

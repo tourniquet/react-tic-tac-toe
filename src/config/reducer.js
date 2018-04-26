@@ -2,15 +2,16 @@ import initialState from './initialState'
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    // case 'DRAW_GRID':
-    //   return Object.assign({}, state, {
-    //     cells: Array(9).fill(null)
-    //   })
     case 'SET_SPRITE':
       return Object.assign({}, state, {
         cells: Array(9).fill(null),
         player: action.player,
         ai: action.ai
+      })
+    case 'DRAW_SPRITE':
+      return Object.assign({}, state, {
+        cells: [...action.cells],
+        gameState: ++state.gameState
       })
     default:
       return state

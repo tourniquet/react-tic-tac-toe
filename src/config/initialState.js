@@ -1,8 +1,8 @@
 const initialState = {
   cells: [],
-  sprite: null,
+  gameState: 0,
   ai: null,
-  player: 0
+  player: null
 }
 
 export default initialState
