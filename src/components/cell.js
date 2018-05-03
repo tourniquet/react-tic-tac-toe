@@ -24,8 +24,10 @@ const Cell = props => {
     const randNum = () => { cell = Math.floor(Math.random() * 9) }
     randNum()
 
-    // while cell on board is set already,
-    // function randNum is called untill find a empty cell
+    /**
+     * while cell on board is set already,
+     * function randNum is called untill find a empty cell
+     */
     while (cells[cell]) randNum()
     cells[cell] = props.ai
 

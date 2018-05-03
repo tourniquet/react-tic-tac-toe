@@ -4,7 +4,6 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_SPRITE':
       return Object.assign({}, state, {
-        cells: Array(9).fill(null),
         player: action.player,
         ai: action.ai
       })
