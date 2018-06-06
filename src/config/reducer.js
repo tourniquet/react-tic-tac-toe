@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
     case 'DRAW_SPRITE':
       return Object.assign({}, state, {
         cells: [...action.cells],
-        gameState: ++state.gameState
+        gameState: state.gameState + 2
       })
     default:
       return state
