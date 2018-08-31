@@ -2,14 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 // styles
-import '../styles/set-sprite.scss'
+import './set-sprite.scss'
 
 /**
  * @param {object} state
  */
-const mapStateToProps = state => {
-  return { player: state.player }
-}
+const mapStateToProps = state => ({
+  player: state.player
+})
 
 /**
  * @param {object} props

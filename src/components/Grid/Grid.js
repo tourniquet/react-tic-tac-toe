@@ -1,11 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
 // components
 import Cell from './cell'
 
-// styles
-import '../styles/grid.scss'
+const StyledGrid = styled.div`
+  display: ${props => props.player ? 'flex' : 'none'};
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 150px;
+`
 
 const mapStateToProps = state => {
   return {
@@ -16,7 +22,7 @@ const mapStateToProps = state => {
 
 const Grid = props => {
   return (
-    <div className={props.player ? 'grid' : 'hide-grid'}>
+    <StyledGrid player={props.player}>
       { props.cells.map((cell, i) => (
         <Cell
           key={i}
@@ -24,7 +30,7 @@ const Grid = props => {
           value={cell}
         />
       ))}
-    </div>
+    </StyledGrid>
   )
 }
 

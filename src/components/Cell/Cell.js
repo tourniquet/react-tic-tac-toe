@@ -1,7 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// styles
-import '../styles/cell.scss'
+import styled from 'styled-components'
+
+const StyledCell = styled.div`
+  border: 1px solid;
+  height: 49px;
+  width: 49px;
+  line-height: 49px;
+  margin: -1px 0 0 -1px;
+  text-align: center;
+
+  &:hover {
+    background: red;
+    cursor: pointer;
+  }
+`
 
 const mapStateToProps = state => {
   return {
@@ -102,13 +115,12 @@ const Cell = props => {
   }
 
   return (
-    <div
+    <StyledCell
       id={props.id}
-      className='cell'
       onClick={el => props.dispatch(drawPlayerSprite(el))}
     >
       {props.value}
-    </div>
+    </StyledCell>
   )
 }
 
